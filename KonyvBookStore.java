@@ -33,8 +33,18 @@ public class KonyvBookStore {
     private JLabel a0€Label;
     private JButton ujravalasztasTorles;
     private JLabel ujKonyvekDarabszamaOsszesen;
-    private int MindenKemiaAr =15;
-    private int PitekEsFelfujtakAr= 19;
+    private int MindenKemiaAr=0;
+    private int PitekEsFelfujtakAr=0;
+    private int rabbiMegazottAr=0;
+    private int ujosszesenAr=0;
+    private int  regiOsszesenAr=0;
+    private int pitekFelfujtakAr=0;
+    private int veganAr=0;
+    private int bekaidokAr=0;
+    private int szerelmesIrokAr=0;
+    private int szazJatekAr=0;
+    private int  nosztalgiaAr=0;
+    private int  mostJarunk=0;
 
 // az ablak definiálása
 
@@ -42,55 +52,73 @@ public class KonyvBookStore {
         mindenKemia.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            MindenKemiaAr=15;
             mindenKemiaKep.setVisible(true);
+            ujraszamol();
             }
         });
         pitekEsFelfujtakPaulCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             pitekFelfujtakKep.setVisible(true);
+            pitekFelfujtakAr=19;
+            ujraszamol();
             }
         });
         szazJatakHejjasEndreCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SzazJatekKep.setVisible(true);
+                szazJatekAr=10;
+                ujraszamol();
             }
         });
         nosztalgia40CheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nosztalgia40Kep.setVisible(true);
+                nosztalgiaAr=15;
+                ujraszamol();
             }
         });
         mostAkkorJarunkCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mostAkkorJarunkKep.setVisible(true);
+                mostJarunk=20;
+                ujraszamol();
             }
         });
         aRabbiSzerdanMegazottCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                rabbiMegazottAr=15;
                 rabbiMegazottKep.setVisible(true);
+                ujraszamol();
             }
         });
         szerelmesIrokCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 szerelmeIrokKep.setVisible(true);
+                szerelmesIrokAr=17;
+                ujraszamol();
             }
         });
         EdesBekaidokiCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 edesBekeidokKep.setVisible(true);
+                bekaidokAr=19;
+                ujraszamol();
             }
         });
         veganSzakacskonyvCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 veganSzakacskonyvKep.setVisible(true);
+                veganAr=22;
+                ujraszamol();
             }
         });
         ujravalasztasTorles.addActionListener(new ActionListener() {
@@ -140,5 +168,30 @@ public class KonyvBookStore {
         mostAkkorJarunkKep.setVisible(false);
         nosztalgia40Kep.setVisible(false);
         SzazJatekKep.setVisible(false);
+        // összegek törlése
+        ujKonyvekAraOsszesen.setText("0 €");
+        hasznaltKonyvekAraOsszesen.setText("0 €");
+        // valtozok törlése
+        ujosszesenAr=0;
+        bekaidokAr=0;
+        veganAr=0;
+        MindenKemiaAr=0;
+        szerelmesIrokAr=0;
+        rabbiMegazottAr=0;
+        pitekFelfujtakAr=0;
+        szazJatekAr=0;
+        nosztalgiaAr=0;
+        mostJarunk=0;
+
+
+
+
+
+    }
+    void ujraszamol() {
+        ujosszesenAr=MindenKemiaAr+pitekFelfujtakAr+veganAr+bekaidokAr+szerelmesIrokAr;
+        ujKonyvekAraOsszesen.setText(ujosszesenAr+" €");
+        regiOsszesenAr= rabbiMegazottAr+nosztalgiaAr+szazJatekAr+mostJarunk;
+        hasznaltKonyvekAraOsszesen.setText(regiOsszesenAr+" €");
     }
 }
