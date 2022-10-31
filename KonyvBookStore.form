@@ -1,13 +1,523 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="KonyvBookStore">
-  <grid id="27dc6" row-count="1" column-count="1" layout-manager="GridLayoutManager">
+  <grid id="27dc6" binding="alapPanel" layout-manager="GridLayoutManager" row-count="12" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
-      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+      <xy x="20" y="20" width="1700" height="1100"/>
     </constraints>
-    <properties/>
+    <properties>
+      <minimumSize width="1300" height="700"/>
+      <preferredSize width="1300" height="700"/>
+    </properties>
     <border type="none"/>
-    <children/>
+    <children>
+      <scrollpane id="51fac">
+        <constraints>
+          <grid row="2" column="1" row-span="7" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="833c6" binding="konyvLista" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="5" left="5" bottom="5" right="5"/>
+            <constraints/>
+            <properties>
+              <minimumSize width="600" height="300"/>
+              <opaque value="false"/>
+              <preferredSize width="600" height="350"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="68850" class="javax.swing.JCheckBox" binding="mindenKemia">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <text value=" Minden Kémia  -  Bonnie Garmus  15€"/>
+                </properties>
+              </component>
+              <component id="ea955" class="javax.swing.JCheckBox" binding="veganSzakacskonyvCheckBox">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <text value=" Vegán szakácskönyv- Adele McConnell  22€"/>
+                </properties>
+              </component>
+              <component id="353e2" class="javax.swing.JCheckBox" binding="EdesBekaidokiCheckBox">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <text value=" Édes békeidők  -  Borbás Marcsi  19€"/>
+                </properties>
+              </component>
+              <component id="59fef" class="javax.swing.JCheckBox" binding="szerelmesIrokCheckBox">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <focusPainted value="false"/>
+                  <font size="18"/>
+                  <text value=" Szerelmes írók -  Lily King 17€"/>
+                </properties>
+              </component>
+              <component id="69fce" class="javax.swing.JCheckBox" binding="pitekEsFelfujtakPaulCheckBox">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <text value=" Piték és felfújtak -  Paul Hollywood  19€"/>
+                </properties>
+              </component>
+              <component id="ad101" class="javax.swing.JCheckBox" binding="szazJatakHejjasEndreCheckBox">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <foreground color="-4486122"/>
+                  <hideActionText value="true"/>
+                  <text value=" Száz játék -  Héjjas Endre   10€"/>
+                </properties>
+              </component>
+              <component id="cc86e" class="javax.swing.JCheckBox" binding="aRabbiSzerdanMegazottCheckBox">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <foreground color="-4486122"/>
+                  <text value="  A rabbi szerdán megázott-  Harry Kemelman  15€"/>
+                </properties>
+              </component>
+              <component id="73a30" class="javax.swing.JCheckBox" binding="mostAkkorJarunkCheckBox">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <foreground color="-4486122"/>
+                  <text value=" Most akkor járunk ? -  Tallér Edina  20€"/>
+                </properties>
+              </component>
+              <component id="df6c8" class="javax.swing.JCheckBox" binding="nosztalgia40CheckBox">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <foreground color="-4486122"/>
+                  <text value=" Nosztalgia 40  -  Vas Gábor  15€"/>
+                </properties>
+              </component>
+              <component id="169f1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="3"/>
+                  <foreground color="-4510636"/>
+                  <text value="ÚJ"/>
+                </properties>
+              </component>
+              <component id="90892" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="3"/>
+                  <foreground color="-4510636"/>
+                  <text value="ÚJ"/>
+                </properties>
+              </component>
+              <component id="45981" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="3"/>
+                  <foreground color="-4510636"/>
+                  <text value="ÚJ"/>
+                </properties>
+              </component>
+              <component id="2f10a" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="3"/>
+                  <foreground color="-4510636"/>
+                  <text value="ÚJ"/>
+                </properties>
+              </component>
+              <component id="ea51" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="3"/>
+                  <foreground color="-4510636"/>
+                  <text value="ÚJ"/>
+                </properties>
+              </component>
+              <component id="becda" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <focusTraversalPolicyProvider value="true"/>
+                  <font size="18" style="3"/>
+                  <foreground color="-6062053"/>
+                  <text value="Regi "/>
+                </properties>
+              </component>
+              <component id="38c0c" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="3"/>
+                  <foreground color="-4486122"/>
+                  <text value="Regi "/>
+                </properties>
+              </component>
+              <component id="17fda" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="3"/>
+                  <foreground color="-4486122"/>
+                  <text value="Regi"/>
+                </properties>
+              </component>
+              <component id="75fd8" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="18" style="3"/>
+                  <foreground color="-4486122"/>
+                  <text value="Regi"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </scrollpane>
+      <grid id="4b389" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-6062053"/>
+        </properties>
+        <border type="etched" title="Kosár: új könyvek">
+          <font size="16" style="3"/>
+          <title-color color="-6062053"/>
+        </border>
+        <children>
+          <vspacer id="ebb82">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="20"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <hspacer id="11289">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="650" height="-1"/>
+              </grid>
+            </constraints>
+          </hspacer>
+          <grid id="51da7" binding="kosarPanel" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="600" height="200"/>
+              </grid>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="f36c0" class="javax.swing.JLabel" binding="mindenKemiaKep">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="mindenKemia.png"/>
+                  <text value=""/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+              <component id="3618d" class="javax.swing.JLabel" binding="pitekFelfujtakKep">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="pitekFelfujtak.png"/>
+                  <text value=""/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+              <component id="b1266" class="javax.swing.JLabel" binding="szerelmeIrokKep">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="4" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="szerelmesIrok.png"/>
+                  <text value=""/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+              <component id="8b4e2" class="javax.swing.JLabel" binding="edesBekeidokKep">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="edesBekaidok.png"/>
+                  <text value=""/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+              <component id="eb675" class="javax.swing.JLabel" binding="veganSzakacskonyvKep">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="veganSazakacskonyv.png"/>
+                  <text value=""/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="921ba" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-6062053"/>
+          <visible value="true"/>
+        </properties>
+        <border type="etched" title="Kosár:  használt könyvek">
+          <font size="16" style="3"/>
+          <title-color color="-6062053"/>
+        </border>
+        <children>
+          <vspacer id="c8b0">
+            <constraints>
+              <grid row="0" column="4" row-span="3" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="20"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <hspacer id="e3bd9">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="500" height="-1"/>
+              </grid>
+            </constraints>
+          </hspacer>
+          <component id="acfcb" class="javax.swing.JLabel" binding="SzazJatekKep">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="szazJatek.png"/>
+              <text value=""/>
+              <verifyInputWhenFocusTarget value="false"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="f6f80" class="javax.swing.JLabel" binding="nosztalgia40Kep">
+            <constraints>
+              <grid row="1" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="nosztalgia40Kep.png"/>
+              <text value=""/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="8d49e" class="javax.swing.JLabel" binding="mostAkkorJarunkKep">
+            <constraints>
+              <grid row="1" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="MostAkkorJarunk.png"/>
+              <text value=""/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="5a35" class="javax.swing.JLabel" binding="rabbiMegazottKep">
+            <constraints>
+              <grid row="1" column="1" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="rabbiSzerdanMegazott.png"/>
+              <text value=""/>
+              <visible value="false"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <hspacer id="2b5cc">
+        <constraints>
+          <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="2347c" class="javax.swing.JButton" binding="ujravalasztasTorles">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="18"/>
+          <label value="Újraválasztás"/>
+          <text value="Újraválasztás"/>
+        </properties>
+      </component>
+      <vspacer id="2f97d">
+        <constraints>
+          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="87a8d">
+        <constraints>
+          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <grid id="f4253" layout-manager="GridLayoutManager" row-count="2" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <maximum-size width="-1" height="70"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="efe5" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="22"/>
+              <text value="Használt könyvek összesen"/>
+            </properties>
+          </component>
+          <component id="ff96e" class="javax.swing.JLabel" binding="hasznaltKonyvekAraOsszesen">
+            <constraints>
+              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="26"/>
+              <text value="0 €"/>
+            </properties>
+          </component>
+          <component id="87b1b" class="javax.swing.JLabel" binding="hasznaltKonyvekDarabszama">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="22"/>
+              <text value="Használt könyvek száma"/>
+            </properties>
+          </component>
+          <component id="647b3" class="javax.swing.JLabel" binding="a0€Label" default-binding="true">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="26"/>
+              <text value="0 €"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <hspacer id="75740">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="30" height="-1"/>
+            <maximum-size width="30" height="-1"/>
+          </grid>
+        </constraints>
+      </hspacer>
+      <hspacer id="c0096">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="20" height="-1"/>
+            <maximum-size width="20" height="-1"/>
+          </grid>
+        </constraints>
+      </hspacer>
+      <grid id="4dcff" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <maximum-size width="-1" height="70"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="343a4" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="22"/>
+              <text value="Új könyvek összesen"/>
+            </properties>
+          </component>
+          <component id="c4282" class="javax.swing.JLabel" binding="ujKonyvekAraOsszesen">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="26"/>
+              <iconTextGap value="1"/>
+              <text value="0 €"/>
+            </properties>
+          </component>
+          <component id="dab13" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="22"/>
+              <text value="Új könyvek száma"/>
+            </properties>
+          </component>
+          <component id="a0805" class="javax.swing.JLabel" binding="ujKonyvekDarabszamaOsszesen">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="26"/>
+              <text value="0 €"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <vspacer id="6bd05">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="10"/>
+            <maximum-size width="-1" height="10"/>
+          </grid>
+        </constraints>
+      </vspacer>
+    </children>
   </grid>
 </form>
