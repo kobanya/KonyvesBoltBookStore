@@ -56,6 +56,8 @@ public class KonyvBookStore {
     private int  nosztalgiaAr=0;
     private int  mostJarunk=0;
     private int beaKonyhajaAr=0;
+    private double total=0;
+    private double osszeKonyv=0;
     private  double barki50felettUjat=0;
     private  double vipKedvezmenyOsszegeValtozo=0;
     private static final DecimalFormat df = new DecimalFormat("0.0");
@@ -77,6 +79,7 @@ public class KonyvBookStore {
             ujraszamol();
             vipKartya();
             ujKonyv50Felett();
+            totalMindenkedvezmennyel();
             }
         });
         pitekEsFelfujtakPaulCheckBox.addActionListener(new ActionListener() {
@@ -87,6 +90,7 @@ public class KonyvBookStore {
             ujraszamol();
             vipKartya();
             ujKonyv50Felett();
+            totalMindenkedvezmennyel();
             }
         });
         szazJatakHejjasEndreCheckBox.addActionListener(new ActionListener() {
@@ -97,6 +101,7 @@ public class KonyvBookStore {
                 ujraszamol();
                 vipKartya();
                 ujKonyv50Felett();
+                totalMindenkedvezmennyel();
             }
         });
         nosztalgia40CheckBox.addActionListener(new ActionListener() {
@@ -107,6 +112,7 @@ public class KonyvBookStore {
                 ujraszamol();
                 vipKartya();
                 ujKonyv50Felett();
+                totalMindenkedvezmennyel();
             }
         });
         mostAkkorJarunkCheckBox.addActionListener(new ActionListener() {
@@ -117,6 +123,7 @@ public class KonyvBookStore {
                 ujraszamol();
                 vipKartya();
                 ujKonyv50Felett();
+                totalMindenkedvezmennyel();
             }
         });
         aRabbiSzerdanMegazottCheckBox.addActionListener(new ActionListener() {
@@ -127,6 +134,7 @@ public class KonyvBookStore {
                 ujraszamol();
                 vipKartya();
                 ujKonyv50Felett();
+                totalMindenkedvezmennyel();
             }
         });
         szerelmesIrokCheckBox.addActionListener(new ActionListener() {
@@ -137,6 +145,7 @@ public class KonyvBookStore {
                 ujraszamol();
                 vipKartya();
                 ujKonyv50Felett();
+                totalMindenkedvezmennyel();
             }
         });
         EdesBekaidokiCheckBox.addActionListener(new ActionListener() {
@@ -147,6 +156,7 @@ public class KonyvBookStore {
                 ujraszamol();
                 vipKartya();
                 ujKonyv50Felett();
+                totalMindenkedvezmennyel();
             }
         });
         veganSzakacskonyvCheckBox.addActionListener(new ActionListener() {
@@ -157,6 +167,7 @@ public class KonyvBookStore {
                 ujraszamol();
                 vipKartya();
                 ujKonyv50Felett();
+                totalMindenkedvezmennyel();
             }
         });
         ujravalasztasTorles.addActionListener(new ActionListener() {
@@ -241,6 +252,8 @@ public class KonyvBookStore {
         // összegek törlése
         ujKonyvekAraOsszesen.setText("0 €");
         hasznaltKonyvekAraOsszesen.setText("0 €");
+        totalFizetendo.setText("0 €");
+        egyebKedvezmeny.setText("0,0 €");
         // valtozok törlése
         ujosszesenAr=0;
         bekaidokAr=0;
@@ -254,6 +267,9 @@ public class KonyvBookStore {
         mostJarunk=0;
         beaKonyhajaAr=0;
         barki50felettUjat=0;
+        regiOsszesenAr=0;
+        ujosszesenAr=0;
+        total=0;
 
 
 
@@ -278,12 +294,14 @@ public class KonyvBookStore {
             VipKedvezmeny.setVisible(true);
             ujraszamol();
             ujKonyv50Felett();
+            totalMindenkedvezmennyel();
         } else if (!VIPradioButton.isSelected()) {
             VipKedvezmeny.setVisible(false);
             vipKedvezmenyOsszeg.setVisible(false);
             vipKedvezmenyOsszegeValtozo = 0;
             ujraszamol();
             ujKonyv50Felett();
+            totalMindenkedvezmennyel();
         }
 
 
@@ -293,16 +311,31 @@ public class KonyvBookStore {
         // nincs VIP kártya és az Újkönyv ára 50 € felett van
           if (!VIPradioButton.isSelected() && ujosszesenAr > 50) {
               barki50felettUjat = ujosszesenAr * 0.1;
-              egyebKedvezmeny.setText("- " + df.format(barki50felettUjat) + "0€");
+              egyebKedvezmeny.setText("- " + df.format(barki50felettUjat) + "€");
           }
+          // van VIP kartya és új könyvet vettél 50 felett
           else if (VIPradioButton.isSelected() && ujosszesenAr> 50)  {
                barki50felettUjat=ujosszesenAr * 0.15;
-               vipKedvezmenyOsszeg.setText("- " + df.format(barki50felettUjat) + "0€");
+               vipKedvezmenyOsszeg.setText("- " + df.format(barki50felettUjat) + "€");
                vipKedvezmenyOsszeg.setVisible(true);
                VipKedvezmeny.setVisible(true);
                egyebKedvezmeny.setText("0 €");
           }
+          else if (regiOsszesenAr>60 && ujosszesenAr>30 && !VIPradioButton.isSelected()) {
+                barki50felettUjat=ujosszesenAr* 0.05 +regiOsszesenAr * 0.05;
+                egyebKedvezmeny.setText("- " + df.format(barki50felettUjat) + "€");
+          }
+          else if (regiOsszesenAr>60 && ujosszesenAr>30 && VIPradioButton.isSelected()) {
+               barki50felettUjat = ujosszesenAr * 0.05 + regiOsszesenAr * 0.05 + ujosszesenAr *0.1;
+               egyebKedvezmeny.setText("- " + df.format(barki50felettUjat) + "€");
+        }
+    }
+    void totalMindenkedvezmennyel() {
+        osszeKonyv = regiOsszesenAr + ujosszesenAr;
+        total= osszeKonyv - barki50felettUjat - vipKedvezmenyOsszegeValtozo;
+        totalFizetendo.setText(total+ " €");
 
     }
 
 }
+

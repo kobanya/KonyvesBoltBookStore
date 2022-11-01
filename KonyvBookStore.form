@@ -587,7 +587,7 @@
           <focusPainted value="false"/>
           <focusable value="false"/>
           <font size="18"/>
-          <icon value="megse.png"/>
+          <icon value="sync.png"/>
           <iconTextGap value="30"/>
           <inheritsPopupMenu value="true"/>
           <label value="Újraválasztás"/>
