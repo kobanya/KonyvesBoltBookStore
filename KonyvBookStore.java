@@ -1,7 +1,10 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class KonyvBookStore {
 
@@ -9,7 +12,6 @@ public class KonyvBookStore {
     private JPanel alapPanel;
     private JPanel konyvLista;
     private JCheckBox mindenKemia;
-    private JLabel hasznaltKonyvekDarabszama;
     private JCheckBox pitekEsFelfujtakPaulCheckBox;
     private JPanel kosarPanel;
     private JLabel mindenKemiaKep;
@@ -30,14 +32,22 @@ public class KonyvBookStore {
     private JLabel veganSzakacskonyvKep;
     private JLabel ujKonyvekAraOsszesen;
     private JLabel hasznaltKonyvekAraOsszesen;
-    private JLabel a0€Label;
     private JButton ujravalasztasTorles;
-    private JLabel ujKonyvekDarabszamaOsszesen;
+    private JLabel vipKedvezmenyOsszeg;
+    private JLabel VipKedvezmeny;
+    private JLabel egyebKedvezményVIPDiscountLabel;
+    private JLabel egyebKedvezmeny;
+    private JPanel totalPanel;
+    private JLabel totalFizetendo;
+    private JRadioButton VIPradioButton;
+    private JCheckBox beaKonyhajaCheckBox;
+    private JLabel beaKonyhajaKepL;
+    private JCheckBox végeCheckBox;
     private int MindenKemiaAr=0;
     private int PitekEsFelfujtakAr=0;
     private int rabbiMegazottAr=0;
-    private int ujosszesenAr=0;
-    private int  regiOsszesenAr=0;
+    private double ujosszesenAr=0;
+    private double  regiOsszesenAr=0;
     private int pitekFelfujtakAr=0;
     private int veganAr=0;
     private int bekaidokAr=0;
@@ -45,10 +55,19 @@ public class KonyvBookStore {
     private int szazJatekAr=0;
     private int  nosztalgiaAr=0;
     private int  mostJarunk=0;
+    private int beaKonyhajaAr=0;
+    private  double vipKedvezmenyOsszegeValtozo=0;
+    private static final DecimalFormat df = new DecimalFormat("0.0");
+
+
 
 // az ablak definiálása
 
     public KonyvBookStore() {
+// rejtett kedvezmény feliratok
+        vipKedvezmenyOsszeg.setVisible(false);
+        VipKedvezmeny.setVisible(false);
+// könyvlista
         mindenKemia.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -127,6 +146,30 @@ public class KonyvBookStore {
                 ujValasztas();
             }
         });
+
+        VIPradioButton.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                vipKartya();
+            }
+        });
+        beaKonyhajaCheckBox.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                beaKonyhajaAr=9;
+
+                if(beaKonyhajaCheckBox.isSelected()== true) {
+                    beaKonyhajaKepL.setVisible(true);
+                }
+                else if(beaKonyhajaCheckBox.isSelected()== false) {
+                    beaKonyhajaKepL.setVisible(false);
+                    beaKonyhajaAr = 0;
+                }
+            vipKartya();
+            ujraszamol();
+
+            }
+        });
     }
 
 
@@ -145,6 +188,8 @@ public class KonyvBookStore {
         frame.setLocation(x, y);
         frame.setVisible(true);
 
+
+
     }
 
     void ujValasztas(){
@@ -158,6 +203,9 @@ public class KonyvBookStore {
         mostAkkorJarunkCheckBox.setSelected(false);
         nosztalgia40CheckBox.setSelected(false);
         szazJatakHejjasEndreCheckBox.setSelected(false);
+        beaKonyhajaCheckBox.setSelected(false);
+
+        VIPradioButton.setSelected(false);
         // képek törlése
         mindenKemiaKep.setVisible(false);
         rabbiMegazottKep.setVisible(false);
@@ -168,6 +216,9 @@ public class KonyvBookStore {
         mostAkkorJarunkKep.setVisible(false);
         nosztalgia40Kep.setVisible(false);
         SzazJatekKep.setVisible(false);
+        beaKonyhajaKepL.setVisible(false);
+        vipKedvezmenyOsszeg.setVisible(false);
+        VipKedvezmeny.setVisible(false);
         // összegek törlése
         ujKonyvekAraOsszesen.setText("0 €");
         hasznaltKonyvekAraOsszesen.setText("0 €");
@@ -182,6 +233,7 @@ public class KonyvBookStore {
         szazJatekAr=0;
         nosztalgiaAr=0;
         mostJarunk=0;
+        beaKonyhajaAr=0;
 
 
 
@@ -189,9 +241,30 @@ public class KonyvBookStore {
 
     }
     void ujraszamol() {
+        // uj könyvek ára összesen
         ujosszesenAr=MindenKemiaAr+pitekFelfujtakAr+veganAr+bekaidokAr+szerelmesIrokAr;
         ujKonyvekAraOsszesen.setText(ujosszesenAr+" €");
-        regiOsszesenAr= rabbiMegazottAr+nosztalgiaAr+szazJatekAr+mostJarunk;
+        //Régi könyvek ára összesen
+        regiOsszesenAr= rabbiMegazottAr+nosztalgiaAr+szazJatekAr+mostJarunk+beaKonyhajaAr;
         hasznaltKonyvekAraOsszesen.setText(regiOsszesenAr+" €");
     }
+
+    void vipKartya ()  {
+        if(VIPradioButton.isSelected()== true){
+            vipKedvezmenyOsszegeValtozo =  ujosszesenAr*0.1 + regiOsszesenAr * 0.1;
+            vipKedvezmenyOsszeg.setText("-"+df.format(vipKedvezmenyOsszegeValtozo)+" €");
+            vipKedvezmenyOsszeg.setVisible(true);
+            VipKedvezmeny.setVisible(true);
+            ujraszamol();
+        }
+        else if(VIPradioButton.isSelected()== false){
+            VipKedvezmeny.setVisible(false);
+            vipKedvezmenyOsszeg.setVisible(false);
+            vipKedvezmenyOsszegeValtozo=0;
+            ujraszamol();
+        }
+
+
+        }
+
 }
